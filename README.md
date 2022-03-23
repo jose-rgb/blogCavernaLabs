@@ -1,24 +1,7 @@
-# README
+## Curso Ruby on Rails 6 MVC
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+<a href="https://youtube.com/playlist?list=PLqsayW8DhUmv49CBT7AvetMplBViAcwuk">
+    Mini curso ministrado por Paulo Eduardo Melo <span></span>
+    <img align="center" src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png"  height="40" width="40" />
+<a>
