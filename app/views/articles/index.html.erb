@@ -3,7 +3,17 @@
 <ul>
     <% @articles.each do |article| %>
         <li>
-            <%= article.title %>
+            <a href="/articles/<%= article.id %>">
+                <%= article.title %>
+            </a>
         </li>
+
+        <!--
+        essa ancoragem tambem pode ser feota via helpers
+        <li>
+            <%= link_to article.title, article %>
+        </li>
+        -->
+ 
     <% end %>
 </ul>
