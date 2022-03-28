@@ -1,4 +1,6 @@
 class ArticlesController < ApplicationController
+  #antes de consultar uma action, executar set_article somente...
+  before_action :set_article, only: %i[show edit update destroy]
   
   #mostrar todos
   def index
@@ -7,7 +9,6 @@ class ArticlesController < ApplicationController
 
   #mostrar um
   def show
-    @article = Article.find(params[:id])
   end
 
   #criar
@@ -30,11 +31,9 @@ class ArticlesController < ApplicationController
 
   #atualizar
   def edit
-    @article = Article.find(params[:id])
   end
 
   def update
-    @article = Article.find(params[:id])
 
     if @article.update(article_params)
       #redireciona para show
@@ -46,10 +45,22 @@ class ArticlesController < ApplicationController
 
   end
 
+  #deletar
+  def destroy
+    @article.destroy
+
+    redirect_to root_path
+  end
+
   private
 
   #params permitidos
   def article_params
     params.require(:article).permit(:title, :body)
+  end
+
+  def set_article
+    #buscando artigo por id, repassado por parametro
+    @article = Article.find(params[:id])
   end
 end
