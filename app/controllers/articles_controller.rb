@@ -28,6 +28,24 @@ class ArticlesController < ApplicationController
 
   end
 
+  #atualizar
+  def edit
+    @article = Article.find(params[:id])
+  end
+
+  def update
+    @article = Article.find(params[:id])
+
+    if @article.update(article_params)
+      #redireciona para show
+      redirect_to @article
+    else
+      #renderizar a view edit carregando o article
+      render :edit
+    end
+
+  end
+
   private
 
   #params permitidos
