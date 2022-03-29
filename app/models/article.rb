@@ -1,4 +1,7 @@
 class Article < ApplicationRecord
+    #pertence a um user
+    belongs_to :user
+    
     #pertence a uma categoria
     belongs_to :category
 

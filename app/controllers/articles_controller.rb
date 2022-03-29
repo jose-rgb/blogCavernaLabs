@@ -1,7 +1,10 @@
 class ArticlesController < ApplicationController
+  #autenticacao devise
+  before_action :authenticate_user!, except: %i[index show]
+
   #antes de consultar uma action, executar set_article somente...
   before_action :set_article, only: %i[show edit update destroy]
-  
+
   #mostrar todos
   def index
 
@@ -26,11 +29,11 @@ class ArticlesController < ApplicationController
 
   #criar
   def new
-    @article = Article.new
+    @article = current_user.articles.new
   end
 
   def create
-    @article = Article.new(article_params)
+    @article = current_user.articles.new(article_params)
 
     if @article.save
       #redireciona para show
