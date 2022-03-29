@@ -4,7 +4,11 @@ class ArticlesController < ApplicationController
   
   #mostrar todos
   def index
-    @articles = Article.all 
+    #page corrente vai ser um parametro ou 1
+    current_page = (params[:page] || 1).to_i
+
+    #paginacao com kaminari ordenado pelo campo created_at
+    @articles = Article.order(created_at: :desc).page(current_page).per(2)
   end
 
   #mostrar um
