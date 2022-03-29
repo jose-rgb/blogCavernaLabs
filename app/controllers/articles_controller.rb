@@ -4,11 +4,20 @@ class ArticlesController < ApplicationController
   
   #mostrar todos
   def index
+
+    #ultimos 3 adicionados decrescentes
+    @highlights = Article.desc_order.first(3)
+
     #page corrente vai ser um parametro ou 1
     current_page = (params[:page] || 1).to_i
 
-    #paginacao com kaminari ordenado pelo campo created_at
-    @articles = Article.order(created_at: :desc).page(current_page).per(2)
+    #id dos ultimos 3 add
+    highlights_ids = @highlights.pluck(:id).join(',')
+
+    #paginacao com kaminari ordenado pelo campo created_at decrescente - os @highlights
+    @articles = Article.without_highlights(highlights_ids)
+                       .desc_order
+                       .page(current_page)
   end
 
   #mostrar um
