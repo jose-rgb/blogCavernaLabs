@@ -5,7 +5,7 @@ class ArticlesController < ApplicationController
   before_action :authenticate_user!, except: %i[index show]
 
   #antes de consultar uma action, executar set_article somente...
-  before_action :set_article, only: %i[show edit update destroy]
+  before_action :set_article, only: %i[ edit update destroy]
   before_action :set_categories, only: %i[new create edit update]
 
   #mostrar todos
@@ -33,6 +33,8 @@ class ArticlesController < ApplicationController
 
   #mostrar um
   def show
+    @article = Article.includes(comments: :user).find(params[:id])
+    authorize @article
   end
 
   #criar

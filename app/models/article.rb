@@ -5,6 +5,9 @@ class Article < ApplicationRecord
     #pertence a uma categoria
     belongs_to :category
 
+    #um artigo pode ter varios comments, destruir artigo -> comments
+    has_many :comments, dependent: :destroy
+
     validates :title, presence: true, length: {minimum: 5}
     validates :body, presence: true, length: {minimum: 10}
 
