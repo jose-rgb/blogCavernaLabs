@@ -78,5 +78,6 @@ class ArticlesController < ApplicationController
   def set_article
     #buscando artigo por id, repassado por parametro
     @article = Article.find(params[:id])
+    authorize @article
   end
 end

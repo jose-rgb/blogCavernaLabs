@@ -62,3 +62,7 @@ gem "simple_form", "~> 5.1"
 gem "kaminari", "~> 1.2"
 
 gem "devise", "~> 4.8"
+
+gem "pundit", "~> 2.2"
+
+gem 'rolify', '~> 6.0'

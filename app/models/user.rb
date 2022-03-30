@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  rolify
   # um user tem muitos artigos, se apagar user->apagar artigos
   has_many  :articles, dependent: :destroy
   # Include default devise modules. Others available are:
