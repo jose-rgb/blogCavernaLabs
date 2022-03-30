@@ -2,7 +2,7 @@
 
     <%= form.input :title  %>
     <%= form.input :body, input_html: { rows: 10 } %>
-    <%= form.association :category, collection: Category.sorted, prompt: "Choose a Category" %>
+    <%= form.association :category, collection: @categories, prompt: "Choose a Category" %>
 
     <br />
 

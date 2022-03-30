@@ -6,6 +6,7 @@ class ArticlesController < ApplicationController
 
   #antes de consultar uma action, executar set_article somente...
   before_action :set_article, only: %i[show edit update destroy]
+  before_action :set_categories, only: %i[new create edit update]
 
   #mostrar todos
   def index
@@ -86,5 +87,9 @@ class ArticlesController < ApplicationController
     #buscando artigo por id, repassado por parametro
     @article = Article.find(params[:id])
     authorize @article
+  end
+
+  def set_categories
+    @categories = Category.sorted
   end
 end
