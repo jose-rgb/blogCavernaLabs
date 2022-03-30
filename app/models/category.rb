@@ -3,7 +3,7 @@ class Category < ApplicationRecord
     has_many :articles, dependent: :restrict_with_error
 
     #nome obrigatorio, tamanho min = 3
-    validates :name, presence: true, length: {minimum: 3}
+    validates :name, presence: true, length: {minimum: 3}, uniqueness: { case_sensitive: false }
 
     #ordem alfabetica
     scope :sorted, -> { order(:name) }

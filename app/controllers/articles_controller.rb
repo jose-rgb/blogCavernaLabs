@@ -9,22 +9,23 @@ class ArticlesController < ApplicationController
 
   #mostrar todos
   def index
-    category = Category.find_by_name(params[:category]) if params[:category].present?
+    @categories = Category.sorted
+    category = @categories.select { |c| c.name == params[:category]}[0] if params[:category].present?
 
     #ultimos 3 adicionados decrescentes
-    @highlights = Article.filter_by_category(category).desc_order.first(3)
+    @highlights = Article.includes(:category, :user).filter_by_category(category).desc_order.first(3)
 
     #id dos ultimos 3 add
     highlights_ids = @highlights.pluck(:id).join(',')
 
 
     #paginacao com kaminari ordenado pelo campo created_at decrescente - os @highlights
-    @articles = Article.without_highlights(highlights_ids)
+    @articles = Article.includes(:category, :user)
+                       .without_highlights(highlights_ids)
                        .filter_by_category(category)
                        .desc_order
                        .page(current_page)
 
-    @categories = Category.sorted
   end
 
   #mostrar um
