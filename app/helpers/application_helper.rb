@@ -7,4 +7,10 @@ module ApplicationHelper
     def sub_masked_email(email)
         email.gsub(/(?<=.{4}).*@.*(?=\S{3})/, '***@*****')
     end
+   
+    def month_day_year(datetime)
+        #formatação da data
+        datetime.strftime('%B %e, %Y')
+    end
+    
 end
