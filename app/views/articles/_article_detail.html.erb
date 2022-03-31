@@ -1,1 +1,1 @@
- <%= month_day_year(article.created_at) %> by <%= article.user.email %> in <%= article.category.name %>
+ <%= month_day_year(article.created_at) %> by <%= sub_masked_email(article.user.email) %> in <%= article.category.name %>
