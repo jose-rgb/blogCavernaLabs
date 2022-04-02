@@ -70,6 +70,8 @@ gem 'rolify', '~> 6.0'
 
 gem "groupdate", "~> 6.0"
 
+gem 'devise-i18n'
+
 group :production do
   gem 'pg', '~> 1.3', '>= 1.3.4'
 end

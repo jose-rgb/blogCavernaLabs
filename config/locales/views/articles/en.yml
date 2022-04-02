@@ -1,0 +1,25 @@
+en:
+  articles:
+    view_more: View more
+    about:
+      title: About
+      description: Hello My name is José Ricardo, programming student, currently focused on Ruby on Rails, The main objective of this blog is to share knowledge, create your article to help this community ;)
+    archives: Archives
+    elsewhere: Elsewhere
+    index:
+      subtitle: Posts
+      new_article: New Article
+    new:
+      title: New Article
+    create:
+      success: Article was successfully created.
+    update:
+      success: Article was successfully updated.
+    destroy:
+      success: Article was successfully destroyed.
+    form:
+      choose_category: Choose a Category
+    show:
+      comments: Comments
+      add_comment: "Add a comment:"
+      login_create_comment: Please, login to create a comment.

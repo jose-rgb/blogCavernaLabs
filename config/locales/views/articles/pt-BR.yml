@@ -1,0 +1,25 @@
+pt-BR:
+  articles:
+    view_more: Ver mais
+    about:
+      title: Sobre
+      description: Olá Me chamo José Ricardo, estudante de programação, atualmente focado em Ruby on Rails, O principal objetivo desse blog e o compartilhamento de conhecimento, crie seu artigo para ajudar essa comunidade ;)
+    archives: Arquivos
+    elsewhere: Em outro lugar
+    index:
+      subtitle: Postagens
+      new_article: Novo Artigo
+    new:
+      title: Novo Artigo
+    create:
+      success: Artigo foi criado com sucesso.
+    update:
+      success: Artigo foi alterado com sucesso.
+    destroy:
+      success: Artigo foi excluído com sucesso.
+    form:
+      choose_category: Escolha uma Categoria
+    show:
+      comments: Comentários
+      add_comment: "Adicione um comentário:"
+      login_create_comment: Por favor, faça o login para criar um comentário.

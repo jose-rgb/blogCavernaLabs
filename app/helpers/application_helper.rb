@@ -8,9 +8,14 @@ module ApplicationHelper
         email.gsub(/(?<=.{4}).*@.*(?=\S{3})/, '***@*****')
     end
    
-    def month_day_year(datetime)
+    def month_day_year(value)
         #formatação da data
-        datetime.strftime('%B %e, %Y')
+        l(value, format: '%B %e, %Y').capitalize
+    end
+
+    def month_year(value)
+        #formatação da data
+        l(value.to_datetime, format: '%B %e, %Y').capitalize
     end
     
 end

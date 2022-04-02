@@ -33,10 +33,10 @@ Building a blog using Bootstrap 5 with Ruby on Rails 6 in MVC pattern.
 
 ```bash
 # clone the project
-git clone https://github.com/peimelo/blogstrap.git
+git clone https://github.com/jose-rgb/blogCavernaLabs.git
 
 # enter the cloned directory
-cd blogstrap
+cd blogCavernaLabs
 
 # install Ruby on Rails dependencies
 bundle install

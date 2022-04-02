@@ -28,7 +28,7 @@ class ArticlesController < ApplicationController
                        .desc_order
                        .page(current_page)
 
-    @archives =  Article.group_by_month(:created_at, format: '%B %Y').count
+    @archives =  Article.group_by_month(:created_at, format: '%B %Y', locale: :en).count
   end
 
   #mostrar um
@@ -47,7 +47,7 @@ class ArticlesController < ApplicationController
 
     if @article.save
       #redireciona para show
-      redirect_to @article, notice: "Article was successfully created."
+      redirect_to @article, notice: t('articles.create.success')
     else
       #renderizar a view new carregando o article
       render :new
@@ -63,7 +63,7 @@ class ArticlesController < ApplicationController
 
     if @article.update(article_params)
       #redireciona para show
-      redirect_to @article, notice: "Article was successfully updated."
+      redirect_to @article, notice: t('articles.update.success')
     else
       #renderizar a view edit carregando o article
       render :edit
@@ -75,7 +75,7 @@ class ArticlesController < ApplicationController
   def destroy
     @article.destroy
 
-    redirect_to root_path, notice: "Article was successfully destroyed."
+    redirect_to root_path, notice: t('articles.destroy.success')
   end
 
   private

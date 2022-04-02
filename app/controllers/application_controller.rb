@@ -3,10 +3,24 @@ class ApplicationController < ActionController::Base
 
     rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
+    around_action :switch_locale
+
     private
+
+    def default_url_options
+      { locale: I18n.locale }
+    end
+
+    def switch_locale(&action)
+      #pegar o locale vindo por params ou o default
+      locale = params[:locale] || I18n.default_locale
+      I18n.with_locale(locale, &action)
+    end
+
+    def user_not_authorized(exception)
+      policy_name = exception.policy.class.to_s.underscore
   
-    def user_not_authorized
-      flash[:alert] = "You are not authorized to perform this action."
+      flash[:alert] = t "#{policy_name}.#{exception.query}", scope: 'pundit', default: :default
       redirect_to(request.referrer || root_path)
     end
 end

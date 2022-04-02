@@ -5,7 +5,7 @@ class CommentsController < ApplicationController
     def create
         #juntar com user 
         @article.comments.create(comment_params.to_h.merge!({ user_id: current_user.id }))
-        redirect_to article_path(@article), notice: 'Comment was succesfully created.'
+        redirect_to article_path(@article), notice: t('app.create.success', model: Comment.model_name.human)
     end
 
     def destroy
@@ -13,7 +13,7 @@ class CommentsController < ApplicationController
         authorize comment
 
         comment.destroy
-        redirect_to article_path(@article), notice: 'Comment was succesfully destroyed.'
+        redirect_to article_path(@article), notice: t('app.destroy.success', model: Comment.model_name.human)
     end
 
     private
